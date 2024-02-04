@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Tast Edit{% endblock%}
+
+{% block main %}
+
+<div class="container py-5">
+    <h1 class="mb-4">Edit Task</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="task_name" class="form-label">Task Name</label>
+            <input type="text" class="form-control" id="task_name" name="task_name" value="{{ task.task_name }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" required>{{ task.description }}</textarea>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="is_finished" name="is_finished" {% if task.is_finished %}checked{% endif %}>
+            <label class="form-check-label" for="is_finished">Is Finished?</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Task</button>
+    </form>
+</div>
+
+
+{% endblock %}

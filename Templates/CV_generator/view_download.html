@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}All CVs{% endblock %}
+
+{% block main %}
+<div class="container py-5">
+    <div class="row">
+        {% for cv in cv %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ cv.image.url }}" class="card-img-top" alt="{{ cv.name }}" style="height: 200px; width: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cv.name }}</h5>
+                    <!-- Add additional information if needed -->
+                    <a href="{% url 'cv_pdf' cv.id %}" class="btn btn-primary">Download CV</a>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+            </div><div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

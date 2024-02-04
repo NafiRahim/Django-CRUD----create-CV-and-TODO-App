@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Add Task{% endblock%}
+
+{% block main %}
+
+<div class="container py-5">
+    <h1 class="mb-4">Add Task</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="task_name" class="form-label">Task Name</label>
+            <input type="text" class="form-control" id="task_name" name="task_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description"></textarea>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="is_finished" name="is_finished">
+            <label class="form-check-label" for="is_finished">Is Finished?</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
