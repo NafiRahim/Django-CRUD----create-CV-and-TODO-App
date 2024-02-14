@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 from CV_generator import views as cv_views
 from Scheduler import views as sch_views
+from accounts import views as acc
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,6 +38,11 @@ urlpatterns = [
     path('edit_task/<int:task_id>/', sch_views.edit_task, name='edit_task'),
     path('update-task-status/<int:task_id>/', sch_views.update_task_status, name='update_task_status'),
     path('delete_task/<int:task_id>/', sch_views.delete_task, name='delete_task'),
+
+    path('login/', acc.login, name='login'),
+    path('logout/', acc.logout, name='logout'),
+    path('reset-password/', acc.reset, name='reset'),
+    path('signup/', acc.register, name='register')
 
 
 
