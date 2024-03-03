@@ -139,7 +139,7 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="" method="post">
+    <form action="{% url 'reset' %}" method="post">
     {% if messages %}
     <ul class="messages"style="color:Red;"> 
         {% for message in messages %}
@@ -148,23 +148,14 @@ button{
     </ul>
     {% endif %}
         {% csrf_token %}
-        <h3>Signup Here</h3>
+        <h3>OTP Verification</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" name="username" id="username">
+        <label for="otp">Enter OTP</label>
+        <input type="text" placeholder="Enter OTP" name="otp" id="otp" required>
 
-        <label for="email">Email</label>
-        <input type="email" placeholder="Email or Phone" name="email" id="email">
+        <input type="hidden" name="email" value="{{ email }}">
 
-        <label for="password1">Password</label>
-        <input type="password" placeholder="Password" id="password1" name="password1">
-
-
-        <label for="password2">Confirm Password</label>
-        <input type="password" placeholder="Confirm Password" id="password2" name="password2">
-        <button type="submit">Signup</button>
-
-        <a href="{% url 'login' %}" >i have already account</a>
+        <button type="submit">Verify OTP</button>
     </form>
 </body>
 </html>

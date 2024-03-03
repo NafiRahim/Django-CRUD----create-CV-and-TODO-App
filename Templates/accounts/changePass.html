@@ -153,25 +153,23 @@
             {% for message in messages %} {{ message }} {% endfor %}
             </ul>
         {% endif %}
-        <h3>Login</h3>
+        <h3>Change Password</h3>
         {% csrf_token %}
-        <label for="username">Username</label>
-        <input type="text" placeholder="Write your email address" id="username" name="username">
+        <!-- <label for="old_password">Old Password</label> -->
+        <input type="password" placeholder="Old Password" id="old_password" name="old_password">
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" name="password">
+        <!-- <label for="new_password1">New Password</label> -->
+        <input type="password" placeholder="New Password" id="new_password1" name="new_password1">
 
-        <button type="submit">Log In</button>
-        <!-- <input type="button" value=""> -->
-        <!-- <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-        </div> -->
+        <!-- <label for="new_password2">Confirm New Password</label> -->
+        <input type="password" placeholder="Confirm New Password" id="new_password2" name="new_password2">
+
+        <button type="submit">Change Password</button>
+        
         <div class="links">
-            <a href="{% url 'register' %}">Create an account</a>
-            <a href="">Reset</a>
+            <!-- <a href="{% url 'register' %}">Create an account</a>
+            <a href="">Reset</a> -->
             <a href="{% url 'home' %}">Home</a>
-
         </div>
     </form>
 </body>

@@ -28,8 +28,17 @@ Follow these steps to set up the project locally:
 ```bash
     cd "Django-CRUD----create-CV-and-TODO-App"
 ```
+3. **Create a virtual environment:**
 
-3. **Install dependencies using pip and the requirements.txt file:**
+```bash
+    python3 -m venv env
+```
+4. **Activate the virtual environment:**
+
+```bash
+    source env/bin/activate
+```
+5. **Install dependencies using pip and the requirements.txt file:**
 
 ```bash
     pip install -r requirements.txt

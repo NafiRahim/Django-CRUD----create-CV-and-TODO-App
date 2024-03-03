@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse, Http404
+from django.contrib.auth.decorators import login_required
 from .models import CV
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
@@ -8,6 +9,8 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 from reportlab.lib.units import inch
 # Create your views here.
+
+
 def home(request):
     return render(request, 'CV_generator/hello.html')
 
@@ -46,7 +49,7 @@ def create_cv(request):
   
     return render(request, 'CV_generator/create_cv.html')
 
-
+@login_required(login_url='login')
 def view(request):
     # Retrieve the CV object by its ID
 

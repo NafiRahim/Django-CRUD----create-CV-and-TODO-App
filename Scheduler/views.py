@@ -2,9 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Task
 # Create your views here.
 
-from django.shortcuts import render, redirect
-from .models import Task
-
 def ToDo(request):
     tasks = Task.objects.all()
     return render(request, 'Scheduler/scheduler.html', {'tasks': tasks})

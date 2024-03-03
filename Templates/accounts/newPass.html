@@ -139,7 +139,7 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="" method="post">
+    <form action="{% url 'update_pass' %}"></form>" method="POST">
     {% if messages %}
     <ul class="messages"style="color:Red;"> 
         {% for message in messages %}
@@ -148,13 +148,8 @@ button{
     </ul>
     {% endif %}
         {% csrf_token %}
-        <h3>Signup Here</h3>
+        <h3>Update Password</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" name="username" id="username">
-
-        <label for="email">Email</label>
-        <input type="email" placeholder="Email or Phone" name="email" id="email">
 
         <label for="password1">Password</label>
         <input type="password" placeholder="Password" id="password1" name="password1">
@@ -164,7 +159,7 @@ button{
         <input type="password" placeholder="Confirm Password" id="password2" name="password2">
         <button type="submit">Signup</button>
 
-        <a href="{% url 'login' %}" >i have already account</a>
+        <!-- <a href="{% url 'login' %}" >i have already account</a> -->
     </form>
 </body>
 </html>
