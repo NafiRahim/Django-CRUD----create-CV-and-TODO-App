@@ -1,0 +1,25 @@
+{
+    "name": "Django Dev Container",
+    "image": "python:3.10-slim-buster",
+    "runArgs": [
+        "-u",
+        "vscode",
+        "-e",
+        "PYTHONUNBUFFERED=1",
+        "-e",
+        "DJANGO_SETTINGS_MODULE=exam.settings"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "python.pythonPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true
+            },
+            "extensions": ["ms-python.python"]
+        }
+    },
+    "forwardPorts": [1234],
+    "postCreateCommand": "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:1234"
+}
